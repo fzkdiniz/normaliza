@@ -1,0 +1,30 @@
+CREATE TABLE veiculos (
+    codLocacao INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    veiculo VARCHAR(100) NOT NULL,
+    cor VARCHAR(100) NOT NULL,
+    placa VARCHAR(50) NOT NULL,
+    diaria DECIMAL(9,2) NOT NULL,
+    cliente VARCHAR(100) NOT NULL,
+    cpf VARCHAR(15) NOT NULL, -- Assuming typical CPF length
+    nascimento DATE NOT NULL,
+    dia INT NOT NULL,
+    total DECIMAL(9,2) NOT NULL
+);
+
+create table cliente(
+	cpf varchar(100) primary key not null,
+	nome varchar(100) not null,
+	nascimento date 
+);
+    
+CREATE TABLE veiculo (
+    cod_locacao INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    veiculo VARCHAR(100) NOT NULL,
+    cor VARCHAR(100) NOT NULL,
+    placa VARCHAR(100) NOT NULL,
+    diaria DECIMAL(9,2) NOT NULL,
+    cpf_cli VARCHAR(100) NOT NULL,
+    dia INT NOT NULL,
+    total DECIMAL(9,2) NOT NULL,
+    FOREIGN KEY (cpf_cli) REFERENCES cliente(cpf)
+);
